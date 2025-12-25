@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journey | Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
     <!-- Navigation -->
     <nav class="bg-white shadow-sm border-b border-gray-200">
@@ -15,9 +17,12 @@
                     <span class="text-xl font-bold text-gray-900">Portfolio</span>
                 </div>
                 <div class="flex space-x-8">
-                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Home</a>
-                    <a href="journey.html" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Journey</a>
-                    <a href="finance.html" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Finance</a>
+                    <a href="index.html"
+                        class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Home</a>
+                    <a href="journey.html"
+                        class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Journey</a>
+                    <a href="finance.html"
+                        class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Finance</a>
                 </div>
             </div>
         </div>
@@ -36,8 +41,9 @@
             <div id="timeline" class="hidden">
                 <div class="relative">
                     <!-- Vertical Line -->
-                    <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gray-200"></div>
-                    
+                    <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gray-200">
+                    </div>
+
                     <!-- Milestones will be rendered here -->
                     <div id="milestones-container"></div>
                 </div>
@@ -49,77 +55,27 @@
     <footer class="bg-gray-800 text-gray-300 py-6">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <p class="text-sm">&copy; 2024 John Developer. All rights reserved.</p>
+                <p class="text-sm">&copy; 2026 SonBIP. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/app.js?v=2"></script>
     <script>
-        // Journey data (embedded - no server needed)
-        const journeyData = {
-            "milestones": [
-                {
-                    "id": 1,
-                    "date": "2018-06-01",
-                    "title": "Started Programming Journey",
-                    "description": "Began learning to code with Python and built my first simple applications. This was the start of my passion for software development.",
-                    "tags": ["Python", "Beginner", "Learning"]
-                },
-                {
-                    "id": 2,
-                    "date": "2019-03-15",
-                    "title": "First Open Source Contribution",
-                    "description": "Made my first contribution to an open-source project on GitHub. Fixed a documentation bug and learned about pull requests and code reviews.",
-                    "tags": ["Open Source", "GitHub", "Documentation"]
-                },
-                {
-                    "id": 3,
-                    "date": "2020-01-10",
-                    "title": "Full Stack Web Development",
-                    "description": "Expanded my skills to include front-end development with JavaScript, HTML, and CSS. Built several personal projects to practice full-stack development.",
-                    "tags": ["JavaScript", "Frontend", "Full Stack"]
-                },
-                {
-                    "id": 4,
-                    "date": "2020-09-20",
-                    "title": "First Professional Job",
-                    "description": "Landed my first developer role at a startup. Worked on building scalable web applications and learned about agile development methodologies.",
-                    "tags": ["Career", "Professional", "Agile"]
-                },
-                {
-                    "id": 5,
-                    "date": "2021-07-05",
-                    "title": "Cloud Computing Certification",
-                    "description": "Earned AWS Solutions Architect certification. Deepened my understanding of cloud services, infrastructure, and deployment strategies.",
-                    "tags": ["AWS", "Cloud", "Certification"]
-                },
-                {
-                    "id": 6,
-                    "date": "2022-02-28",
-                    "title": "Led Major Project",
-                    "description": "Took on leadership role for a critical project. Coordinated a team of 5 developers and successfully delivered the product ahead of schedule.",
-                    "tags": ["Leadership", "Team", "Management"]
-                },
-                {
-                    "id": 7,
-                    "date": "2023-05-15",
-                    "title": "Started Independent Development",
-                    "description": "Transitioned to freelance and independent development. Working on diverse projects for clients while building my own products.",
-                    "tags": ["Freelance", "Entrepreneurship", "Independence"]
-                },
-                {
-                    "id": 8,
-                    "date": "2024-01-01",
-                    "title": "Building SaaS Products",
-                    "description": "Currently focused on building and launching SaaS products. Exploring new technologies and continuously improving my craft.",
-                    "tags": ["SaaS", "Product", "Innovation"]
-                }
-            ]
-        };
+        // Load journey data from JSON file
+        async function loadJourneyData() {
+            try {
+                const response = await fetch('data/journey.json');
+                if (!response.ok) throw new Error('Failed to load journey data');
+                return await response.json();
+            } catch (error) {
+                console.error('Error loading journey data:', error);
+                return { milestones: [] };
+            }
+        }
 
         // Render journey timeline
-        function renderJourney() {
+        function renderJourney(journeyData) {
             const timelineEl = document.getElementById('timeline');
             const containerEl = document.getElementById('milestones-container');
 
@@ -136,11 +92,11 @@
                 <div class="relative flex items-center mb-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}">
                     <!-- Timeline Dot -->
                     <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow z-10"></div>
-                    
+
                     <!-- Content -->
                     <div class="ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}">
                         <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                            <div class="text-sm text-blue-600 font-medium mb-2">${formatDate(milestone.date)}</div>
+                            <div class="text-sm text-blue-600 font-medium mb-2">${formatDate(milestone.date, milestone.endDate || null)}</div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">${milestone.title}</h3>
                             <p class="text-gray-600 mb-4">${milestone.description}</p>
                             <div class="flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : ''}">
@@ -157,7 +113,11 @@
         }
 
         // Initialize on DOM ready
-        document.addEventListener('DOMContentLoaded', renderJourney);
+        document.addEventListener('DOMContentLoaded', async () => {
+            const journeyData = await loadJourneyData();
+            renderJourney(journeyData);
+        });
     </script>
 </body>
+
 </html>

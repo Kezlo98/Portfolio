@@ -27,13 +27,25 @@ function formatCurrency(amount) {
 }
 
 // Format date
-function formatDate(dateString) {
+function formatDate(dateString, endDateString = null) {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('en-US', {
+    const formatter = new Intl.DateTimeFormat('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
-    }).format(date);
+    });
+
+    if (endDateString) {
+        const endDate = new Date(endDateString);
+        const endFormatter = new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        return `${formatter.format(date)} - ${endFormatter.format(endDate)}`;
+    }
+
+    return formatter.format(date);
 }
 
 // Set active navigation link

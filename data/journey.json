@@ -2,59 +2,57 @@
   "milestones": [
     {
       "id": 1,
-      "date": "2018-06-01",
-      "title": "Started Programming Journey",
-      "description": "Began learning to code with Python and built my first simple applications. This was the start of my passion for software development.",
-      "tags": ["Python", "Beginner", "Learning"]
+      "date": "2023-11-14",
+      "title": "First Project ThemeSafe ‑ Auto Backup",
+      "description": "A shopify app that helps users backup their theme files.",
+      "tags": [
+        "Shopify",
+        "Beginner",
+        "Learning"
+      ]
     },
     {
       "id": 2,
-      "date": "2019-03-15",
-      "title": "First Open Source Contribution",
-      "description": "Made my first contribution to an open-source project on GitHub. Fixed a documentation bug and learned about pull requests and code reviews.",
-      "tags": ["Open Source", "GitHub", "Documentation"]
+      "date": "2024-12-01",
+      "title": "Gap Year",
+      "description": "Get Married and have a baby ",
+      "tags": [
+        "Gap Year",
+        "Personal",
+        "Family"
+      ]
     },
     {
       "id": 3,
-      "date": "2020-01-10",
-      "title": "Full Stack Web Development",
-      "description": "Expanded my skills to include front-end development with JavaScript, HTML, and CSS. Built several personal projects to practice full-stack development.",
-      "tags": ["JavaScript", "Frontend", "Full Stack"]
+      "date": "2025-12-09",
+      "title": "Release the second shopify app with Vibe coding",
+      "description": "ThemeSafe ‑ Security ‑ Review - a shopify app that helps users review security issues of their theme files.",
+      "tags": [
+        "Shopify",
+        "Beginner",
+        "Vibe coding"
+      ]
     },
     {
       "id": 4,
-      "date": "2020-09-20",
-      "title": "First Professional Job",
-      "description": "Landed my first developer role at a startup. Worked on building scalable web applications and learned about agile development methodologies.",
-      "tags": ["Career", "Professional", "Agile"]
+      "date": "2025-12-24",
+      "title": "The third shopify app: OrderSafe - Auto Backup",
+      "description": "Help users to backup their order.",
+      "tags": [
+        "Shopify",
+        "Intermediate",
+        "Vibe coding"
+      ]
     },
     {
       "id": 5,
-      "date": "2021-07-05",
-      "title": "Cloud Computing Certification",
-      "description": "Earned AWS Solutions Architect certification. Deepened my understanding of cloud services, infrastructure, and deployment strategies.",
-      "tags": ["AWS", "Cloud", "Certification"]
-    },
-    {
-      "id": 6,
-      "date": "2022-02-28",
-      "title": "Led Major Project",
-      "description": "Took on leadership role for a critical project. Coordinated a team of 5 developers and successfully delivered the product ahead of schedule.",
-      "tags": ["Leadership", "Team", "Management"]
-    },
-    {
-      "id": 7,
-      "date": "2023-05-15",
-      "title": "Started Independent Development",
-      "description": "Transitioned to freelance and independent development. Working on diverse projects for clients while building my own products.",
-      "tags": ["Freelance", "Entrepreneurship", "Independence"]
-    },
-    {
-      "id": 8,
-      "date": "2024-01-01",
-      "title": "Building SaaS Products",
-      "description": "Currently focused on building and launching SaaS products. Exploring new technologies and continuously improving my craft.",
-      "tags": ["SaaS", "Product", "Innovation"]
+      "date": "2028-01-01",
+      "title": "Millionaire",
+      "description": "Get rich",
+      "tags": [
+        "Personal",
+        "Flex"
+      ]
     }
   ]
 }
