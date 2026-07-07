@@ -1,270 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finance | Developer Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finance - Son BIP</title>
+  <meta name="description" content="Son BIP's finance: real balance, income, and an honest $1,000,000 goal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data/sonbip.png" />
+  <link rel="stylesheet" href="assets/css/ghibli.css" />
+  <script type="importmap">
+    { "imports": { "pixi.js": "https://cdn.jsdelivr.net/npm/pixi.js@8/dist/pixi.min.mjs" } }
+  </script>
 </head>
-<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm border-b border-gray-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <span class="text-xl font-bold text-gray-900">Portfolio</span>
-                </div>
-                <div class="flex space-x-8">
-                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Home</a>
-                    <a href="journey.html" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Journey</a>
-                    <a href="finance.html" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Finance</a>
-                </div>
-            </div>
-        </div>
+<body>
+  <div class="scene" id="scene" aria-hidden="true">
+    <div class="layer bg" style="background-image:url('assets/img/ghibli-finance.png'); --depth:.12"></div>
+    <div class="scrim"></div>
+    <div class="vignette"></div>
+  </div>
+  <canvas id="atmos" aria-hidden="true"></canvas>
+  <div class="grain"></div>
+
+  <div class="content">
+    <nav class="nav">
+      <a class="brand" href="index.html">Son BIP</a>
+      <ul>
+        <li><a class="link" href="index.html">Home</a></li>
+        <li><a class="link" href="journey.html">Journey</a></li>
+        <li><a class="link active" href="finance.html">Finance</a></li>
+      </ul>
     </nav>
 
-    <!-- Main Content -->
-    <main class="flex-grow">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <!-- Header -->
-            <div class="mb-10">
-                <h1 class="text-3xl font-bold text-gray-900 mb-2">Finance Overview</h1>
-                <p class="text-gray-600">Track income, expenses, donations, and tool fees.</p>
-            </div>
+    <main class="page">
+      <div class="page-head">
+        <h1>Finance</h1>
+        <p>Real numbers, kept honest.</p>
+      </div>
 
-            <!-- Finance Content -->
-            <div id="finance-content">
-                <!-- Summary Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <div class="text-sm text-gray-500 mb-1">Balance</div>
-                        <div id="summary-balance" class="text-2xl font-bold text-gray-900"></div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <div class="text-sm text-gray-500 mb-1">Total Income</div>
-                        <div id="summary-income" class="text-2xl font-bold text-green-600"></div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <div class="text-sm text-gray-500 mb-1">Donations</div>
-                        <div id="summary-donations" class="text-2xl font-bold text-purple-600"></div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <div class="text-sm text-gray-500 mb-1">Tool Fees</div>
-                        <div id="summary-toolfees" class="text-2xl font-bold text-orange-600"></div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                        <div class="text-sm text-gray-500 mb-1">Net</div>
-                        <div id="summary-net" class="text-2xl font-bold text-blue-600"></div>
-                    </div>
-                </div>
-
-                <!-- Filters -->
-                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                    <h2 class="text-lg font-semibold text-gray-900 mb-4">Filters</h2>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="flex-1 min-w-[200px]">
-                            <label for="filter-type" class="block text-sm font-medium text-gray-700 mb-1">Type</label>
-                            <select id="filter-type" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                <option value="all">All Types</option>
-                                <option value="income">Income</option>
-                                <option value="expense">Expense</option>
-                            </select>
-                        </div>
-                        <div class="flex-1 min-w-[200px]">
-                            <label for="filter-category" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
-                            <select id="filter-category" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                <option value="all">All Categories</option>
-                                <option value="client">Client</option>
-                                <option value="donation">Donation</option>
-                                <option value="toolFees">Tool Fees</option>
-                            </select>
-                        </div>
-                        <div class="flex items-end">
-                            <button id="reset-filters" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
-                                Reset Filters
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Filtered Totals -->
-                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                    <div class="flex flex-wrap gap-6 text-sm">
-                        <div>
-                            <span class="text-gray-600">Filtered Transactions: </span>
-                            <span id="filtered-count" class="font-semibold text-gray-900">0</span>
-                        </div>
-                        <div>
-                            <span class="text-gray-600">Total: </span>
-                            <span id="filtered-total" class="font-semibold text-gray-900">$0.00</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Transactions Table -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-gray-50 border-b border-gray-200">
-                                <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
-                                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
-                                </tr>
-                            </thead>
-                            <tbody id="transactions-body" class="divide-y divide-gray-200">
-                                <!-- Transactions will be rendered here -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+      <section class="panel">
+        <div class="stats" id="stats"></div>
+        <div class="progress">
+          <div class="top"><span class="lab">Road to $1,000,000</span><span class="pct" id="pct"></span></div>
+          <div class="bar"><i id="bar"></i></div>
         </div>
+        <div class="ledger">
+          <h3>Transactions</h3>
+          <div class="filters" id="filters">
+            <button class="tab active" data-f="all">All</button>
+            <button class="tab" data-f="income">Income</button>
+            <button class="tab" data-f="expense">Expense</button>
+          </div>
+          <div class="blog" id="blog"></div>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-6">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <p class="text-sm">&copy; 2024 John Developer. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <footer class="foot">© 2026 Son BIP · numbers are real. yes, really.</footer>
+  </div>
 
-    <script src="assets/js/app.js?v=2"></script>
-    <script>
-        // Load finance data from JSON file
-        async function loadFinanceData() {
-            try {
-                const response = await fetch('data/finance.json');
-                if (!response.ok) throw new Error('Failed to load finance data');
-                return await response.json();
-            } catch (error) {
-                console.error('Error loading finance data:', error);
-                return { summary: { balance: 0, totalIncome: 0, totalDonations: 0, totalToolFees: 0, totalExpenses: 0 }, transactions: [] };
-            }
-        }
+  <script type="module">
+    import { loadJSON, deriveGame, formatCurrency } from "./assets/js/game-lib.js";
+    import { mountAtmosphere } from "./assets/js/atmosphere.js";
+    import { initReveal } from "./assets/js/reveal.js";
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        let allTransactions = [];
+    const [journey, finance] = await Promise.all([loadJSON("data/journey.json"), loadJSON("data/finance.json")]);
+    const g = deriveGame(journey, finance);
+    const txs = (finance?.transactions ?? []).slice().sort((a, b) => new Date(b.date) - new Date(a.date));
 
-        // Render summary cards
-        function renderSummary(summary) {
-            document.getElementById('summary-balance').textContent = formatCurrency(summary.balance);
-            document.getElementById('summary-income').textContent = formatCurrency(summary.totalIncome);
-            document.getElementById('summary-donations').textContent = formatCurrency(summary.totalDonations);
-            document.getElementById('summary-toolfees').textContent = formatCurrency(summary.totalToolFees);
+    // stats
+    const net = g.income - (finance?.summary?.totalDonations ?? 0) - g.toolFees - g.expenses;
+    const stats = [
+      { l: "Balance", v: formatCurrency(g.balance), cls: "" },
+      { l: "Income", v: formatCurrency(g.income), cls: "good" },
+      { l: "Donations", v: formatCurrency(finance?.summary?.totalDonations ?? 0), cls: "" },
+      { l: "Tool fees", v: formatCurrency(g.toolFees), cls: "bad" },
+      { l: "Net", v: formatCurrency(net), cls: net >= 0 ? "good" : "bad" },
+    ];
+    document.getElementById("stats").innerHTML = stats.map((s) =>
+      `<div class="stat" data-reveal><div class="l">${s.l}</div><div class="v ${s.cls}">${s.v}</div></div>`).join("");
 
-            const net = summary.totalIncome - summary.totalDonations - summary.totalToolFees - summary.totalExpenses;
-            document.getElementById('summary-net').textContent = formatCurrency(net);
-        }
+    // goal progress
+    document.getElementById("pct").textContent = g.goalPct.toFixed(4) + "%";
+    requestAnimationFrame(() => { document.getElementById("bar").style.width = Math.max(1.2, g.goalPct) + "%"; });
 
-        // Get category label
-        function getCategoryLabel(category) {
-            const labels = {
-                'client': 'Client',
-                'donation': 'Donation',
-                'toolFees': 'Tool Fees'
-            };
-            return labels[category] || category;
-        }
+    // ledger + filters
+    const blog = document.getElementById("blog");
+    function render(filter) {
+      const list = filter === "all" ? txs : txs.filter((t) => t.type === filter);
+      blog.innerHTML = list.length ? list.map((t) => `
+        <div class="row">
+          <span class="d">${new Date(t.date).toLocaleDateString("en-US", { month: "short", day: "2-digit" })}</span>
+          <span class="desc">${t.description}</span>
+          <span class="amt ${t.amount >= 0 ? "in" : "out"}">${formatCurrency(t.amount)}</span>
+        </div>`).join("") : `<div class="row" style="justify-content:center;color:var(--ink-soft)">no transactions</div>`;
+    }
+    render("all");
+    document.querySelectorAll("#filters .tab").forEach((b) => b.addEventListener("click", () => {
+      document.querySelectorAll("#filters .tab").forEach((x) => x.classList.toggle("active", x === b));
+      render(b.dataset.f);
+    }));
+    initReveal();
 
-        // Render transactions table
-        function renderTransactions(transactions) {
-            const tbody = document.getElementById('transactions-body');
+    // pointer parallax
+    const scene = document.getElementById("scene");
+    let tx2 = 0, ty2 = 0, cx = 0, cy = 0, raf = 0;
+    function apply() {
+      cx += (tx2 - cx) * 0.12; cy += (ty2 - cy) * 0.12;
+      scene.style.setProperty("--mx", cx.toFixed(3)); scene.style.setProperty("--my", cy.toFixed(3));
+      if (Math.abs(tx2 - cx) > 0.001 || Math.abs(ty2 - cy) > 0.001) raf = requestAnimationFrame(apply); else raf = 0;
+    }
+    if (!reduce) addEventListener("pointermove", (e) => { tx2 = e.clientX / innerWidth - 0.5; ty2 = e.clientY / innerHeight - 0.5; if (!raf) raf = requestAnimationFrame(apply); }, { passive: true });
 
-            if (transactions.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="5" class="px-6 py-12 text-center text-gray-500">
-                            No transactions found matching the current filters.
-                        </td>
-                    </tr>
-                `;
-                return;
-            }
-
-            tbody.innerHTML = transactions.map(tx => `
-                <tr class="hover:bg-gray-50 transition-colors">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${formatDate(tx.date)}</td>
-                    <td class="px-6 py-4 text-sm text-gray-900">${tx.description}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${tx.type === 'income' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
-                            ${tx.type.charAt(0).toUpperCase() + tx.type.slice(1)}
-                        </span>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">${getCategoryLabel(tx.category)}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-right font-medium ${tx.amount >= 0 ? 'text-green-600' : 'text-red-600'}">
-                        ${formatCurrency(tx.amount)}
-                    </td>
-                </tr>
-            `).join('');
-        }
-
-        // Update filtered totals
-        function updateFilteredTotals(transactions) {
-            document.getElementById('filtered-count').textContent = transactions.length;
-
-            const total = transactions.reduce((sum, tx) => sum + tx.amount, 0);
-            document.getElementById('filtered-total').textContent = formatCurrency(total);
-        }
-
-        // Filter transactions
-        function filterTransactions() {
-            const typeFilter = document.getElementById('filter-type').value;
-            const categoryFilter = document.getElementById('filter-category').value;
-
-            let filtered = allTransactions;
-
-            if (typeFilter !== 'all') {
-                filtered = filtered.filter(tx => tx.type === typeFilter);
-            }
-
-            if (categoryFilter !== 'all') {
-                filtered = filtered.filter(tx => tx.category === categoryFilter);
-            }
-
-            // Sort by date (newest first)
-            filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-            renderTransactions(filtered);
-            updateFilteredTotals(filtered);
-        }
-
-        // Reset filters
-        function resetFilters() {
-            document.getElementById('filter-type').value = 'all';
-            document.getElementById('filter-category').value = 'all';
-            filterTransactions();
-        }
-
-        // Render finance page
-        function renderFinance(financeData) {
-            if (!financeData || !financeData.summary || !financeData.transactions) {
-                return;
-            }
-
-            // Store all transactions
-            allTransactions = financeData.transactions;
-
-            // Render summary
-            renderSummary(financeData.summary);
-
-            // Set up filter event listeners
-            document.getElementById('filter-type').addEventListener('change', filterTransactions);
-            document.getElementById('filter-category').addEventListener('change', filterTransactions);
-            document.getElementById('reset-filters').addEventListener('click', resetFilters);
-
-            // Initial render
-            filterTransactions();
-        }
-
-        // Initialize on DOM ready
-        document.addEventListener('DOMContentLoaded', async () => {
-            const financeData = await loadFinanceData();
-            renderFinance(financeData);
-        });
-    </script>
+    mountAtmosphere({ page: "finance", canvas: document.getElementById("atmos") }).catch((e) => console.warn("atmosphere:", e));
+  </script>
 </body>
 </html>

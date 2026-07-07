@@ -1,0 +1,25 @@
+{
+  "_comment": "Meta-progression definitions. Phaser-agnostic; consumed by assets/js/meta-profile.js + barracks.js.",
+  "progression": {
+    "levelCap": 10,
+    "xpBase": 100,
+    "xpGrowth": 1.35,
+    "bankRatio": 0.5,
+    "runScoring": { "perWave": 25, "goldDivisor": 20, "castleHpWeight": 20 }
+  },
+  "gear": [
+    { "id": "ironSword",     "name": "Iron Sword",     "slot": "weapon",   "cost": 300, "dmgMod": 0.15, "desc": "+15% unit damage" },
+    { "id": "steelSword",    "name": "Steel Sword",    "slot": "weapon",   "cost": 800, "dmgMod": 0.25, "desc": "+25% unit damage" },
+    { "id": "leatherShield", "name": "Leather Shield", "slot": "armor",    "cost": 250, "hpMod": 0.15, "desc": "+15% unit HP" },
+    { "id": "ironShield",    "name": "Iron Shield",    "slot": "armor",    "cost": 700, "hpMod": 0.25, "desc": "+25% unit HP" },
+    { "id": "warHorn",       "name": "War Horn",       "slot": "standard", "cost": 500, "goldMod": 0.20, "desc": "+20% starting gold" }
+  ],
+  "skills": [
+    { "id": "fortification", "name": "Fortification", "cost": 1, "desc": "+10% castle HP" },
+    { "id": "swiftMarch",    "name": "Swift March",   "cost": 1, "desc": "+10% unit speed" },
+    { "id": "ironWill",      "name": "Iron Will",     "cost": 1, "desc": "+10% unit HP" },
+    { "id": "keenEdge",      "name": "Keen Edge",     "cost": 1, "desc": "+10% unit damage" },
+    { "id": "treasury",      "name": "Treasury",      "cost": 1, "desc": "+10% passive gold/s" },
+    { "id": "bountyHunter",  "name": "Bounty Hunter", "cost": 1, "desc": "+15% kill bounty" }
+  ]
+}
