@@ -45,6 +45,18 @@
       ]
     },
     {
+      "id": 6,
+      "date": "2026-07-07",
+      "title": "Building Carousel Draft — AI carousel backgrounds to TikTok drafts",
+      "description": "An app that turns an AI prompt into a swipe-ready carousel and drops it into your TikTok Inbox as a draft, so you add the text overlay and post by hand. Registering the TikTok Content Posting API.",
+      "tags": [
+        "TikTok API",
+        "AI",
+        "Building in public",
+        "Carousel Draft"
+      ]
+    },
+    {
       "id": 5,
       "date": "2028-01-01",
       "title": "Millionaire",
