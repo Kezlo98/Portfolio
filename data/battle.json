@@ -1,0 +1,27 @@
+{
+  "_comment": "Tiny Swords castle wave-defense config. Pure-fantasy. Tunable.",
+  "viewport": { "w": 1280, "h": 720 },
+  "grassFrame": 10,
+  "lane": { "y": 500, "jitter": 10 },
+  "castle": { "x": 175, "y": 560, "scale": 1, "hp": 1000, "frontX": 250 },
+  "portal": { "x": 1170, "y": 500 },
+  "deployZone": { "xMin": 290, "xMax": 470, "yMin": 300, "yMax": 680 },
+  "maxPlayerUnits": 24,
+  "economy": { "startGold": 150, "passivePerSec": 6, "killBounty": 14, "waveBonus": 70 },
+  "units": {
+    "warrior": { "cost": 50, "hp": 120, "dmg": 16, "range": 34, "atkCd": 650, "speed": 46, "kind": "warrior", "ranged": false },
+    "archer":  { "cost": 60, "hp": 60,  "dmg": 20, "range": 175, "atkCd": 950, "speed": 38, "kind": "archer", "ranged": true },
+    "lancer":  { "cost": 90, "hp": 240, "dmg": 10, "range": 32, "atkCd": 700, "speed": 30, "kind": "lancer", "ranged": false, "scale": 0.4 }
+  },
+  "enemyBase": { "hp": 70, "dmg": 10, "range": 30, "atkCd": 700, "speed": 36, "kind": "warrior" },
+  "waves": [
+    { "color": "red",    "count": 6,  "hpMul": 1.0, "speedMul": 1.00, "interval": 1100 },
+    { "color": "red",    "count": 9,  "hpMul": 1.2, "speedMul": 1.05, "interval": 1000 },
+    { "color": "purple", "count": 11, "hpMul": 1.5, "speedMul": 1.10, "interval": 950 },
+    { "color": "purple", "count": 13, "hpMul": 1.8, "speedMul": 1.15, "interval": 900 },
+    { "color": "yellow", "count": 15, "hpMul": 2.2, "speedMul": 1.20, "interval": 850 },
+    { "color": "yellow", "count": 17, "hpMul": 2.6, "speedMul": 1.25, "interval": 800 },
+    { "color": "black",  "count": 19, "hpMul": 3.0, "speedMul": 1.25, "interval": 760 },
+    { "color": "black",  "count": 24, "hpMul": 3.6, "speedMul": 1.27, "interval": 700 }
+  ]
+}

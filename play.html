@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Son BIP — Tiny Swords: Defend the Kingdom</title>
+  <meta name="description" content="A top-down castle wave-defense game built with the Tiny Swords asset pack." />
+  <link rel="icon" href="data/sonbip.png" />
+  <link rel="stylesheet" href="assets/css/ghibli.css" />
+  <link rel="stylesheet" href="assets/game/game.css" />
+  <link rel="stylesheet" href="assets/css/barracks.css" />
+  <script type="importmap">
+    { "imports": { "phaser": "https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.esm.min.js" } }
+  </script>
+</head>
+<body>
+  <!-- TITLE SCREEN -->
+  <div id="title">
+    <div class="scrim" aria-hidden="true"></div>
+    <a class="title-back" href="index.html">&larr; Portfolio</a>
+    <div class="title-card">
+      <span class="title-eyebrow">A Tiny Swords game</span>
+      <h1>Defend the Kingdom</h1>
+      <p class="sub">Survive eight escalating waves. Spend your gold, hold the line.</p>
+      <button id="play-btn" type="button">Play</button>
+    </div>
+    <p class="title-controls"><b>1</b>/<b>2</b>/<b>3</b> arm unit &nbsp;·&nbsp; <b>click field</b> deploy &nbsp;·&nbsp; <b>Esc</b> pause &nbsp;·&nbsp; <b>M</b> mute</p>
+  </div>
+
+  <!-- GAME (boots on Play) -->
+  <div id="game" hidden></div>
+  <a class="play-back btn btn-ghost" href="index.html" hidden>&larr; Portfolio</a>
+
+  <!-- BARRACKS: meta hub, shown between runs via the game-level 'to-barracks' event -->
+  <section id="barracks" hidden></section>
+
+  <script type="module">
+    const titleEl = document.getElementById("title");
+    const gameEl = document.getElementById("game");
+    const backEl = document.querySelector(".play-back");
+
+    document.getElementById("play-btn").addEventListener("click", async () => {
+      const btn = document.getElementById("play-btn");
+      btn.disabled = true;
+      btn.textContent = "Mustering troops...";
+      titleEl.hidden = true;
+      gameEl.hidden = false;
+      backEl.hidden = false;
+      try {
+        const { startGame } = await import("./assets/game/boot.js");
+        const game = await startGame(gameEl);
+        window.__game = game; // dev/test hook
+        const { initBarracks } = await import("./assets/js/barracks.js");
+        initBarracks(game);
+      } catch (e) {
+        console.error("game boot failed:", e);
+        gameEl.innerHTML = '<p style="text-align:center;padding:2rem;font-family:Nunito,sans-serif;color:#fbf6ec">Couldn\'t load the game. <a href="index.html">Back to portfolio</a>.</p>';
+      }
+    });
+  </script>
+</body>
+</html>

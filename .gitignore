@@ -1,0 +1,9 @@
+# Tiny Swords asset pack (Pixel Frog) — license forbids redistribution.
+# Staged source pack (do not commit):
+/assets/ts-asset/
+/assets/vector-asset/
+# Game sprites derived from the pack (re-add from source — see CREDITS.md):
+/assets/game/img/
+
+# macOS
+.DS_Store

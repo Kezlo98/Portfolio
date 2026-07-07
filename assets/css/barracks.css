@@ -1,0 +1,61 @@
+/* Barracks — DOM meta hub (between runs). Tiny-Swords/paper vibe via ghibli tokens. */
+#barracks { position: fixed; inset: 0; z-index: 60; overflow: auto;
+  background: radial-gradient(120% 90% at 50% 10%, #3a5a34 0%, #243a1f 70%, #15230f 100%);
+  font-family: var(--font-body); color: #fbf6ec; padding: 22px 16px 40px; }
+#barracks[hidden] { display: none; }
+.bk { max-width: 1080px; margin: 0 auto; }
+
+/* header */
+.bk-head { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; padding: 16px 22px; border-radius: var(--r);
+  background: url("../game/img/panel-blue.png") center/100% 100% no-repeat; }
+.bk-head h2 { margin: 0; font-family: var(--font-display); font-size: 30px; letter-spacing: -.01em; }
+.bk-level { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 240px; }
+.bk-lvl { font-weight: 800; font-size: 15px; background: var(--accent); color: #fffdf8; padding: 5px 12px; border-radius: var(--r-pill); }
+.bk-xpbar { flex: 1; height: 14px; background: rgba(0,0,0,.32); border: 1px solid rgba(255,253,248,.22); border-radius: var(--r-pill); overflow: hidden; }
+.bk-xpfill { height: 100%; background: linear-gradient(90deg, #ffd66e, #ffe9a8); transition: width .4s cubic-bezier(.16,1,.3,1); }
+.bk-xptext { font-family: var(--font-mono); font-size: 12px; color: rgba(255,253,248,.82); min-width: 108px; }
+.bk-gold { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: #ffe9a8; }
+.bk-coin { width: 26px; height: 26px; vertical-align: -5px; margin-right: 6px; }
+.bk-gold em { font-style: normal; font-size: 12px; color: rgba(255,253,248,.7); font-family: var(--font-body); }
+.bk-life { margin: 12px 0 18px; font-family: var(--font-mono); font-size: 12px; color: rgba(255,253,248,.7); }
+
+/* columns */
+.bk-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.bk-col { background: rgba(30,50,90,.55); border: 1px solid rgba(120,170,255,.25); border-radius: var(--r); padding: 16px 18px; backdrop-filter: blur(4px); }
+.bk-col h3 { margin: 0 0 12px; font-family: var(--font-display); font-size: 17px; display: flex; justify-content: space-between; align-items: baseline; }
+.bk-col h4 { margin: 14px 0 6px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #ffd66e; }
+.bk-pts { font-family: var(--font-mono); font-size: 11px; color: rgba(255,253,248,.7); font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+/* gear + skill cards */
+.bk-gear, .bk-skill { background: rgba(255,253,248,.06); border: 1px solid rgba(255,253,248,.10); border-radius: var(--r-sm); padding: 10px 12px; margin-bottom: 8px; }
+.bk-gear.eq, .bk-skill.on { border-color: rgba(255,214,110,.55); background: rgba(255,214,110,.10); }
+.bk-g-name, .bk-s-name { font-weight: 700; font-size: 14px; }
+.bk-g-slot { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; color: rgba(255,253,248,.55); font-weight: 400; margin-left: 6px; }
+.bk-g-desc, .bk-s-desc { font-size: 12px; color: rgba(255,253,248,.72); margin: 2px 0 8px; }
+
+/* buttons */
+.bk-g-btn, .bk-s-btn { font-family: var(--font-body); font-weight: 700; font-size: 12px; padding: 10px 14px; border-radius: 12px;
+  border: none; background: url("../game/img/btn-blue.png") center/100% 100% no-repeat; color: #fffdf8; cursor: pointer; width: 100%;
+  transition: filter .15s ease, transform .12s ease; }
+.bk-g-btn:hover, .bk-s-btn:hover { filter: brightness(1.1); }
+.bk-g-btn:active, .bk-s-btn:active { transform: scale(.97); }
+.bk-g-btn.equipped, .bk-s-btn.on { color: #fff9d6; box-shadow: 0 0 0 2px #ffd66e inset; cursor: default; filter: brightness(1.05); }
+.bk-g-btn.owned { filter: brightness(0.6) saturate(0.5); color: rgba(255,253,248,.75); cursor: default; }
+.bk-g-btn.locked, .bk-s-btn.locked { filter: brightness(0.35) saturate(0.4); color: rgba(255,253,248,.55); cursor: not-allowed; }
+.bk-respec { margin-top: 6px; background: transparent; border: 1px solid rgba(255,253,248,.25); color: rgba(255,253,248,.75);
+  font-family: var(--font-body); font-size: 12px; padding: 7px 12px; border-radius: var(--r-pill); cursor: pointer; width: 100%; }
+.bk-respec:hover { color: #fffdf8; border-color: rgba(255,253,248,.5); }
+
+/* field guide rows */
+.bk-st { display: flex; justify-content: space-between; font-size: 13px; padding: 3px 0; border-bottom: 1px dashed rgba(255,253,248,.08); }
+.bk-st span:first-child { color: rgba(255,253,248,.7); }
+.bk-st b { color: #9fe8a0; }
+
+/* footer */
+.bk-foot { display: flex; gap: 12px; justify-content: center; margin-top: 22px; }
+.bk-btn { font-family: var(--font-body); font-weight: 800; font-size: 16px; padding: 13px 30px; border-radius: var(--r-pill); border: none; cursor: pointer; }
+.bk-next { background: url("../game/img/btn-blue.png") center/100% 100% no-repeat; color: #fffdf8; border-radius: 14px; box-shadow: 0 12px 30px rgba(0,0,0,.35); transition: transform .18s cubic-bezier(.16,1,.3,1), filter .18s ease; }
+.bk-next:hover { transform: translateY(-2px); filter: brightness(1.06); }
+.bk-menu { background: rgba(255,253,248,.10); color: #fbf6ec; border: 1px solid rgba(255,253,248,.25); }
+
+@media (max-width: 760px) { .bk-cols { grid-template-columns: 1fr; } }
