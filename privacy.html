@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - Carousel Draft · Son BIP</title>
+  <meta name="description" content="Privacy policy for Carousel Draft — the AI carousel-background generator that posts to TikTok as a draft." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data/sonbip.png" />
+  <link rel="stylesheet" href="assets/css/ghibli.css" />
+  <style>
+    .pp { font-size: 15px; line-height: 1.7; color: var(--ink); }
+    .pp-lead { font-size: 16px; color: var(--ink-soft); margin-top: 0; }
+    .pp h2 { font-family: var(--font-display); font-size: 19px; margin: 26px 0 6px; color: var(--ink); }
+    .pp h2:first-of-type { margin-top: 14px; }
+    .pp p { margin: 8px 0; color: var(--ink-soft); }
+    .pp ul { margin: 8px 0; padding-left: 20px; color: var(--ink-soft); }
+    .pp li { margin: 4px 0; }
+    .pp code { font-family: var(--font-mono); font-size: 13px; background: var(--paper-2); padding: 1px 6px; border-radius: 6px; color: var(--accent); }
+    .pp a { color: var(--accent); }
+    .pp-back { margin-top: 26px; }
+  </style>
+</head>
+<body>
+  <div class="scene" id="scene" aria-hidden="true">
+    <div class="layer bg" style="background-image:url('assets/img/ghibli-journey.jpg'); --depth:.12"></div>
+    <div class="scrim"></div>
+    <div class="vignette"></div>
+  </div>
+  <div class="grain"></div>
+
+  <div class="content">
+    <nav class="nav">
+      <a class="brand" href="index.html">Son BIP</a>
+      <ul>
+        <li><a class="link" href="index.html">Home</a></li>
+        <li><a class="link" href="journey.html">Journey</a></li>
+        <li><a class="link" href="finance.html">Finance</a></li>
+        <li><a class="link active" href="carousel-draft.html">Carousel Draft</a></li>
+      </ul>
+    </nav>
+
+    <main class="page">
+      <div class="page-head">
+        <h1>Privacy Policy</h1>
+        <p>Carousel Draft · last updated July 7, 2026</p>
+      </div>
+
+      <section class="panel pp">
+        <p class="pp-lead">This policy explains what <strong>Carousel Draft</strong> collects, how it is shared with
+          <a href="https://www.tiktok.com/legal/privacy-policy-eea" target="_blank" rel="noopener">TikTok</a>, and your rights.
+          Carousel Draft generates AI carousel backgrounds and uploads them to <em>your</em> TikTok account as a draft.</p>
+
+        <h2>1. Who we are</h2>
+        <p>Carousel Draft is built and operated by Son BIP (the "developer"). For any privacy question, email
+          <a href="mailto:son19101998@gmail.com">son19101998@gmail.com</a>.</p>
+
+        <h2>2. Data we collect</h2>
+        <ul>
+          <li><strong>From TikTok (only after you authorize):</strong> your TikTok <code>open_id</code> (a stable, anonymous identifier), display name, and profile avatar. We never see or store your TikTok password.</li>
+          <li><strong>Content you create:</strong> the text prompts you send to the AI image generator and the generated background images.</li>
+          <li><strong>Basic usage data:</strong> anonymous request logs (timestamps, success/error) used to keep the service running and fix bugs.</li>
+        </ul>
+        <p>We do <strong>not</strong> collect sensitive data such as payment details, government IDs, or precise location.</p>
+
+        <h2>3. How data is shared with TikTok</h2>
+        <p>When you connect your TikTok account, Carousel Draft uses TikTok's <strong>Content Posting API</strong> to push your
+          generated images into your TikTok <strong>Inbox as a draft</strong>. To do this it requests the scopes
+          <code>user.info.basic</code> (read your profile), <code>video.upload</code> (share as draft), and optionally
+          <code>video.publish</code>. The generated images and a draft title are sent to TikTok on your behalf and are then
+          governed by <a href="https://www.tiktok.com/legal/privacy-policy-eea" target="_blank" rel="noopener">TikTok's Privacy Policy</a>.</p>
+
+        <h2>4. How we use data</h2>
+        <p>Solely to generate your carousel backgrounds, deliver them to your TikTok account, and operate the app. We do not sell your data or use it to train AI models.</p>
+
+        <h2>5. Data retention</h2>
+        <ul>
+          <li><strong>TikTok profile data (open_id, name, avatar):</strong> kept only while your account is linked and deleted within <strong>72 hours</strong> of unlinking.</li>
+          <li><strong>Generated images &amp; prompts:</strong> kept for <strong>30 days</strong> so you can re-download a draft, then permanently deleted.</li>
+          <li><strong>Anonymous logs:</strong> rotated after <strong>90 days</strong>.</li>
+        </ul>
+
+        <h2>6. Your rights</h2>
+        <p>You can request access to, correction of, export of, or deletion of your data at any time by emailing
+          <a href="mailto:son19101998@gmail.com">son19101998@gmail.com</a>. Depending on where you live (e.g. GDPR, CCPA), you may also
+          have the right to object to processing or lodge a complaint with your local data-protection authority.</p>
+
+        <h2>7. Data deletion via TikTok</h2>
+        <p>You can also trigger deletion from inside TikTok. When you remove Carousel Draft from your TikTok authorized apps,
+          TikTok calls our <strong>data-deletion callback endpoint</strong> (HTTPS), and we erase your linked data within
+          <strong>72 hours</strong> as required by the TikTok developer policy.</p>
+
+        <h2>8. Third parties &amp; AI</h2>
+        <p>Generated images are produced by a third-party AI image provider solely to fulfill your request. Your data may be
+          processed by our hosting provider for delivery. Each processor is bound by data-protection terms.</p>
+
+        <h2>9. Cookies &amp; local storage</h2>
+        <p>Carousel Draft uses a single first-party session/login token and browser local storage to remember you. No advertising or tracking cookies are used.</p>
+
+        <h2>10. Children</h2>
+        <p>Carousel Draft and the TikTok Content Posting API are not intended for users under the age required by TikTok in your region (typically 13, 16 in the EEA/UK). We do not knowingly process data from younger users.</p>
+
+        <h2>11. Security</h2>
+        <p>Access tokens are stored encrypted and transmitted only over HTTPS. No system is perfectly secure, but we apply industry-standard safeguards.</p>
+
+        <h2>12. Changes</h2>
+        <p>We may update this policy; the "last updated" date above will change. Material changes are announced in the app.</p>
+
+        <p class="pp-back"><a class="btn btn-ghost" href="carousel-draft.html">&larr; Back to Carousel Draft</a></p>
+      </section>
+    </main>
+
+    <footer class="foot">© 2026 Son BIP · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · built in public</footer>
+  </div>
+</body>
+</html>

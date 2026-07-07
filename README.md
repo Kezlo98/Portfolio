@@ -1,7 +1,7 @@
 # Portfolio
 
 Static portfolio + a top-down castle wave-defense game (**Tiny Swords: Defend the Kingdom**) for **Son BIP** - indie developer building Shopify apps in public.
-Pages: `index.html` (portfolio + Play CTA), `journey.html`, `finance.html`, `play.html` (the game).
+Pages: `index.html` (portfolio + Play CTA), `journey.html`, `finance.html`, `play.html` (the game), `carousel-draft.html` (Carousel Draft — TikTok app landing) + `privacy.html` (privacy policy) + `terms.html` (terms of service).
 
 No build step. ES modules, `fetch()` data, and Three.js 3D assets (`assets/models/*.glb`, `assets/hdri/*.hdr`) are blocked by CORS over `file://` — **serve over HTTP**.
 
@@ -28,7 +28,7 @@ Then open <http://localhost:8000>.
 ## Structure
 
 ```
-index.html, journey.html, finance.html, play.html   # portfolio pages + game (play.html)
+index.html, journey.html, finance.html, play.html, carousel-draft.html, privacy.html, terms.html   # portfolio pages + game (play.html) + TikTok app landing + policy + terms
 assets/css/                               # ghibli.css (portfolio), arcade.css (3D)
 assets/js/                                # game-lib.js (data/derive), atmosphere.js + reveal.js (PixiJS)
 assets/game/                              # Phaser game: boot, scene-preload/battle, entity-castle/unit, sys-economy/waves/fx/audio, ui-hud/overlay, game.css, img/ (gitignored)
